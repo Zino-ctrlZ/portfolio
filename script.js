@@ -130,6 +130,7 @@ window.addEventListener('scroll', (e) => {
 function transform() {
 	const stickySection = document.querySelector('.sticky');
 	const offsetTop = stickySection.parentElement.offsetTop;
+	console.log('Window.Scrolly: ', window.scrollY, ' offset');
 	let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
 	percentage = percentage < 0 ? 0 : percentage > 300 ? 300 : percentage;
 	const timeline_parent = stickySection.querySelector('.timeline_parent');
