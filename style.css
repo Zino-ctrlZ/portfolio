@@ -56,6 +56,7 @@ h1 {
 	h1 {
 		font-size: 15rem;
 	}
+
 	.timeline {
 		width: 500px;
 		height: 300px;
@@ -73,7 +74,7 @@ h1 {
 #board {
 	display: grid;
 	grid-template-columns: repeat(20, 1fr);
-	opacity: 0.09;
+	opacity: 0.2;
 }
 
 .cell {

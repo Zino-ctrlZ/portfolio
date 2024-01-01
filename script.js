@@ -56,7 +56,7 @@ async function playRound() {
 			winner = board.children[0].value;
 			fillRemainingBoard();
 			displayResult(takes);
-			await new Promise((resolve) => setTimeout(resolve, 1000));
+			await new Promise((resolve) => setTimeout(resolve, 500));
 			break;
 		}
 	}
