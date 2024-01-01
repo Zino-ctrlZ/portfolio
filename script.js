@@ -2,11 +2,39 @@ const board = document.getElementById('board');
 const resultContainer = document.getElementById('result');
 
 const numRows = 8;
-const numCols = 20;
+let numCols = 20;
+
 const totalAreas = numRows * numCols;
 const result = 1000000000;
 let takes = 0;
+const home = document.getElementById('home');
+const contact = document.getElementById('contact');
+let sticky_parent = document.getElementById('sticky_parent');
+let timeline_parent = document.getElementsByClassName('timeline_parent');
+timeline_parent = timeline_parent[0];
+if (home.clientWidth < 500) {
+	timeline_parent.style.width = '600vw';
+	sticky_parent.style.height = '600vh';
+}
 
+console.log(
+	'home inner height: ',
+	home.innerHeight,
+	' client Width: ',
+	home.clientWidth
+);
+console.log(
+	'contact inner height: ',
+	contact.innerHeight,
+	' client width: ',
+	contact.clientWidth
+);
+console.log(
+	'window client width: ',
+	window.clientWidth,
+	' window inner width: ',
+	window.innerWidth
+);
 async function playGame() {
 	while (takes < result) {
 		await playRound();
@@ -126,13 +154,32 @@ window.addEventListener('scroll', (e) => {
 	transform();
 });
 
+window.addEventListener('resize', () => {
+	if (home.clientWidth < 500) {
+		timeline_parent.style.width = '600vw';
+		sticky_parent.style.height = '600vh';
+	}
+
+	if (home.clientWidth > 500) {
+		timeline_parent.style.width = '200vw';
+		sticky_parent.style.height = '200vh';
+	}
+});
 //enable horizontal scroll
 function transform() {
+	let time_parent = document.getElementsByClassName('timeline_parent');
+	time_parent = time_parent[0];
+	console.log('time_parent: ', time_parent);
+	let max_width = 200;
+	if (time_parent.style.width == '600vw') {
+		max_width = 600;
+	}
+	console.log('max_width in transform: ', max_width);
 	const stickySection = document.querySelector('.sticky');
 	const offsetTop = stickySection.parentElement.offsetTop;
-	console.log('Window.Scrolly: ', window.scrollY, ' offset');
 	let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
-	percentage = percentage < 0 ? 0 : percentage > 300 ? 300 : percentage;
+	percentage =
+		percentage < 0 ? 0 : percentage > max_width ? max_width : percentage;
 	const timeline_parent = stickySection.querySelector('.timeline_parent');
 	timeline_parent.style.transform = `translate3d(${-percentage}vw, 0, 0)`;
 }

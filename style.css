@@ -11,7 +11,6 @@ body {
 	font-family: 'Bebas Neue', sans-serif;
 	background: #010101;
 	overflow-x: hidden;
-	max-width: 100%;
 	width: 100%;
 	overscroll-behavior: none;
 }
@@ -43,7 +42,7 @@ nav {
 	align-items: center;
 	height: 92vh;
 	margin: 0;
-
+	overflow-x: hidden;
 	color: #c0bdc3;
 }
 h1 {
@@ -51,6 +50,24 @@ h1 {
 	font-weight: 700;
 	position: absolute;
 	color: #ffff;
+}
+
+@media screen and (min-width: 200px) and (max-width: 480px) {
+	h1 {
+		font-size: 15rem;
+	}
+	.timeline {
+		width: 500px;
+		height: 300px;
+		padding: 0.5em 1em;
+	}
+	.timeline_parent {
+		width: 600vw;
+	}
+
+	#sticky_parent {
+		height: 600vh;
+	}
 }
 
 #board {
@@ -83,7 +100,6 @@ h1 {
 }
 
 .sticky {
-	/* background: #26282c; */
 	background: #313131;
 	overflow: hidden;
 	position: sticky;
