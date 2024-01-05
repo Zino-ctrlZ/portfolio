@@ -57,10 +57,10 @@ h1 {
 		font-size: 15rem;
 	}
 
-	.timeline {
+	.timeline_parent > .timeline {
 		width: 500px;
 		height: 300px;
-		padding: 0.5em 1em;
+		padding: 0.5em 2.5em !important;
 	}
 	.timeline_parent {
 		width: 600vw;
@@ -134,7 +134,8 @@ h1 {
 .timeline & p {
 	margin-bottom: 5px;
 }
-.description {
+
+c .description {
 	line-height: 1.5em;
 	font-weight: 500;
 	font-size: clamp(1.125rem, 2vw, 1.25rem);
@@ -160,4 +161,8 @@ a {
 .info {
 	margin-top: 1.25em;
 	line-height: 1.2em;
+}
+
+.info > p {
+	text-decoration: none;
 }
