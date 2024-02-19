@@ -141,6 +141,9 @@ c .description {
 	font-size: clamp(1.125rem, 2vw, 1.25rem);
 }
 
+.description span {
+	text-transform: lowercase;
+}
 #contact {
 	background: #f3af5f;
 	display: flex;
